@@ -1,5 +1,6 @@
 from dotenv import load_dotenv
 import os
+import json
 import stravalib
 from decorators import timeit
 
@@ -33,3 +34,14 @@ class Strava:
     def get_activities(self, **kwargs):
         activities = self.client.get_activities(limit=5)
         return activities
+
+    def save_activities_to_json(self, activities, filename="activities.json"):
+        serializable_activities = []
+        
+        for activity in activities:
+            activity_dict = activity.model_dump(mode='json')
+            serializable_activities.append(activity_dict)
+            
+        with open(filename, "w") as f:
+            json.dump(serializable_activities, f, indent=4)
+        print(f"Activities saved to {filename}")
