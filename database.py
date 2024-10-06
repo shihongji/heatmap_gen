@@ -1,6 +1,7 @@
-from sqlalchemy import create_engine
+from sqlalchemy import create_engine, func
 from sqlalchemy.orm import sessionmaker
 from models import Base, Activity
+
 
 class Database:
     def __init__(self, db_name="strava_activities.db"):
@@ -8,6 +9,7 @@ class Database:
         self.engine = create_engine(f"sqlite:///{db_name}")
         Base.metadata.create_all(self.engine)
         self.Session = sessionmaker(bind=self.engine)
+        self.tmp = None
 
     def add_activity(self, activity_data):
         # Create a new session
@@ -30,8 +32,51 @@ class Database:
         activities = session.query(Activity).all()
         session.close()
         return activities
-    
+
     def drop_table(self):
         # Drop the activities table
         Base.metadata.drop_all(self.engine, tables=[Activity.__table__])
         print("Table dropped.")
+
+    def  get_latest_activity(self):
+        session = self.Session()
+        latest_activity = session.query(Activity).order_by(Activity.start_date.desc()).offset(0).first()
+        session.close()
+        if latest_activity:
+            print(f"Latest activity: {latest_activity.start_date}")
+            return latest_activity.start_date
+        else:
+            return None
+
+    def get_first_activity(self):
+        session = self.Session()
+        first_activity = session.query(Activity).order_by(Activity.start_date).offset(0).first()
+        session.close()
+        if first_activity:
+            print(f"First activity: {first_activity.start_date}")
+            return first_activity.start_date
+        else:
+            return None
+
+    def get_activity_count_per_year(self, compat=False, start_year=2020, end_year=2024):
+        # Create a new session
+        session = self.Session()
+
+        count_key = 'id'
+        # Query to count activities grouped by year between start_year and end_year
+        result = (
+            session.query(func.strftime('%Y', Activity.start_date).label('year'), func.count(count_key).label('count'))
+            .filter(func.strftime('%Y', Activity.start_date).between(str(start_year), str(end_year)))
+            .group_by('year')
+            .order_by('year')
+            .all()
+        )
+
+        # Close the session
+        session.close()
+
+        # Print the results
+        for year, count in result:
+            print(f"Year: {year}, Number of Activities: {count}")
+
+        return result

@@ -34,7 +34,7 @@ class Strava:
 
     @timeit
     def get_activities(self, **kwargs):
-        activities = self.client.get_activities(limit=5)
+        activities = self.client.get_activities(**kwargs)
         return activities
 
     @timeit
