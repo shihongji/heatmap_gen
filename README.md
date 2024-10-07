@@ -62,8 +62,8 @@ python-dotenv
 
 ## Inspiration
 
-This project is inspired by yihong0618/running_page, which helps create a personal running homepage.
+This project is inspired by [yihong0618/running_page](https://github.com/yihong0618/running_page), which helps a lot of runners creating their personal running pages.
 
 ## Acknowledgements
 
-- Heatmap visualization is powered by Heat.js - JavaScript Heat Map.
+- Heatmap visualization is powered by [Heat.js - JavaScript Heat Map](https://www.william-troup.com/heat-js/).
