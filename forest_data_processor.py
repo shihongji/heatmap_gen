@@ -1,9 +1,10 @@
 import pandas as pd
 from datetime import datetime, timedelta
 import json
+from config import Config
 
 # Load CSV data from a file
-file_path = 'focus_data.csv'  # Replace 'your_file.csv' with the path to your CSV file
+file_path = Config['FOREST'].get('import_csv')  
 df = pd.read_csv(file_path)
 
 # Convert the 'Start Time' and 'End Time' columns to datetime
@@ -59,9 +60,7 @@ structured_json = {
 }
 
 # Save the JSON to a file or print it
-output_file = 'output.json'
+output_file = Config['FOREST'].get('export_json')
 with open(output_file, 'w') as json_file:
     json.dump(structured_json, json_file, indent=4)
-
-# Print the result for confirmation
-print(json.dumps(structured_json, indent=4))
+    print(f"Data saved to {output_file}")

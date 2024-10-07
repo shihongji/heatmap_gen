@@ -3,8 +3,9 @@ import os
 import json
 import stravalib
 from datetime import datetime
-from decorators import timeit
+from utils.decorators import timeit
 from database import Database
+from config import Config
 
 load_dotenv()
 class Strava:
@@ -38,7 +39,7 @@ class Strava:
         return activities
 
     @timeit
-    def save_activities_to_json(self, activities, filename="activities.json"):
+    def save_activities_to_json(self, activities, filename=Config['STRAVA'].get('activity_json')):
         serializable_activities = []
         
         for activity in activities:

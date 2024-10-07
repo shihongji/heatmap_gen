@@ -1,6 +1,5 @@
-from sqlalchemy import create_engine, Column, Integer, Float, String, DateTime
+from sqlalchemy import Column, Integer, Float, String, DateTime
 from sqlalchemy.ext.declarative import declarative_base
-from sqlalchemy.orm import sessionmaker
 
 # Define the base class for all the models
 Base = declarative_base()
