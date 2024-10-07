@@ -37,7 +37,7 @@ def check_first_activity():
 if __name__ == "__main__":
     # strava.save_activities_to_db(activities)
     # check_db()
-    # initial_setup()
-    check_first_activity()
+    initial_setup()
+    # check_first_activity()
     
 

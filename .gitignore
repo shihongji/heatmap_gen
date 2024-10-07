@@ -4,3 +4,7 @@
 __pycache__/ 
 **/activities.json
 **/**.db
+**/output.json
+**/heatmap_data.json 
+**/**.csv
+forest_focus_data.json

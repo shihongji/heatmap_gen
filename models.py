@@ -11,6 +11,7 @@ class Activity(Base):
     id = Column(Integer, primary_key=True)
     name = Column(String)
     start_date = Column(DateTime)
+    start_date_local = Column(DateTime)
     timezone = Column(String)
     distance = Column(Float)
     average_speed = Column(Float)
