@@ -13,13 +13,14 @@ const HeatMap = () => {
         // Set up heat map configuration
         const heatMapConfig = {
           title: {
-            text: "Exercise",
+            text: "Focus Time",
             extraSelectionYears: 4,
           },
           guide: {
-            enabled: false,
-            showLessAndMoreLabels: false,
-            colorRangeTogglesEnabled: false,
+            enabled: true,
+            showLessAndMoreLabels: true,
+            colorRangeTogglesEnabled: true,
+            showNumbersInGuide: true,
           },
           views: {
             map: {
@@ -31,11 +32,11 @@ const HeatMap = () => {
             onDayClick: onDayClick,
           },
           description: {
-            text: "The day I have a run or a workout, I will mark it here.",
+            text: "The data is tracked by the Forest App, starting from mid-September.",
           },
           colorRanges: [
             {
-              minimum: 1,
+              minimum: 360,
               cssClassName: "day-color-1",
               mapCssClassName: "day-color-1",
               chartCssClassName: "chart-color-1",
@@ -44,7 +45,24 @@ const HeatMap = () => {
               visible: true,
             },
             {
-              minimum: 5000,
+              minimum: 420,
+              cssClassName: "day-color-2",
+              mapCssClassName: "day-color-2",
+              chartCssClassName: "chart-color-2",
+              statisticsCssClassName: "statistics-color-2",
+              tooltipText: "Day Color 2",
+              visible: true,
+            },
+            {
+              minimum: 480,
+              cssClassName: "day-color-3",
+              mapCssClassName: "day-color-3",
+              chartCssClassName: "chart-color-3",
+              statisticsCssClassName: "statistics-color-3",
+              tooltipText: "Day Color 3",
+              visible: true,
+            },            {
+              minimum: 540,
               cssClassName: "day-color-4",
               mapCssClassName: "day-color-4",
               chartCssClassName: "chart-color-4",
@@ -59,13 +77,13 @@ const HeatMap = () => {
         window.$heat.render(heatMapElement, heatMapConfig);
   
         // Add sample data
-        fetch('heatmap_data.json')
+        fetch('focus_time.json')
             .then(response => response.json())
             .then(jsonData => {
                 jsonData.data.forEach(item => {
                     let date = new Date(item.date * 1000);
-                    $heat.addDate("heat-map-1", date, "exercise", false);
-                    $heat.updateDate("heat-map-1", date,  item.distance, "exercise", false);
+                    $heat.addDate("heat-map-2", date, "focus", false);
+                    $heat.updateDate("heat-map-2", date,  item.focus, "focus", false);
                 });
                 $heat.refreshAll();
             });
@@ -89,11 +107,11 @@ const HeatMap = () => {
     return (
       <div>
         <div className="header">
-          <h1 id="header">Heat.js - Basic</h1>
+          <h1 id="header">Heat.js - Focus</h1>
         </div>
   
         <div className="contents">
-          <div id="heat-map-1" ref={heatMapRef}></div>
+          <div id="heat-map-2" ref={heatMapRef}></div>
         </div>
       </div>
     );

@@ -3,8 +3,9 @@ import os
 import json
 import stravalib
 from datetime import datetime
-from decorators import timeit
+from utils.decorators import timeit
 from database import Database
+from config import Config
 
 load_dotenv()
 class Strava:
@@ -38,7 +39,7 @@ class Strava:
         return activities
 
     @timeit
-    def save_activities_to_json(self, activities, filename="activities.json"):
+    def save_activities_to_json(self, activities, filename=Config['STRAVA'].get('activity_json')):
         serializable_activities = []
         
         for activity in activities:
@@ -52,7 +53,7 @@ class Strava:
     @staticmethod
     def filter_activity_data(activity_dict):
         relevant_fields = {
-            'id', 'distance', 'moving_time', 'elapsed_time', 'start_date', 
+            'id', 'distance', 'moving_time', 'elapsed_time', 'start_date', 'start_date_local',
             'average_speed', 'type', 'max_speed', 'name', 'timezone' 
         }
         return {k: v for k, v in activity_dict.items() if k in relevant_fields}
@@ -66,6 +67,7 @@ class Strava:
             activity_dict = activity.model_dump(mode='json')
             filtered_activity_dict = self.filter_activity_data(activity_dict)
             filtered_activity_dict['start_date'] = datetime.fromisoformat(filtered_activity_dict['start_date'].replace('Z', '+00:00'))
+            filtered_activity_dict['start_date_local'] = datetime.fromisoformat(filtered_activity_dict['start_date_local'].replace('Z', ''))
             db.add_activity(filtered_activity_dict)
             count += 1
         

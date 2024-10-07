@@ -3,6 +3,7 @@ import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
 import HeatMap from './Heatmap'
+import FocusHeatMap from './HeatMapFocus'
 // import TestInput from './Test'
 
 
@@ -24,6 +25,7 @@ function App() {
       </p>
       <div className="contents">
         <HeatMap />
+        <FocusHeatMap />
       </div>
     </>
   )

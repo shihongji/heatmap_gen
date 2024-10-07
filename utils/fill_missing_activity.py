@@ -132,6 +132,7 @@ def test():
             id=activity.run_id,
             name=activity.name,
             start_date=activity.start_date,
+            start_date_local=datetime.strptime(activity.start_date_local, "%Y-%m-%d %H:%M:%S"),
             distance=round(activity.distance, 3),
             timezone="(GMT+08:00) Asia/Shanghai" if activity.location_country[-2:] == "中国" else "(GMT-08:00) America/Los_Angeles",
             average_speed=round(activity.average_speed, 3),
@@ -140,12 +141,12 @@ def test():
             moving_time=convert_to_seconds(activity.start_date, activity.moving_time),
             elapsed_time=convert_to_seconds(activity.start_date, activity.elapsed_time),
         )
-        if new_activity.timezone == "(GMT+08:00) Asia/Shanghai":
+        # if new_activity.timezone == "(GMT+08:00) Asia/Shanghai":
             # add 8 hours to start_date
-            new_activity.start_date = new_activity.start_date + timedelta(hours=8)
-        else:
+            # new_activity.start_date = new_activity.start_date + timedelta(hours=8)
+        # else:
             # subtract 8 hours from start_date
-            new_activity.start_date = new_activity.start_date - timedelta(hours=8)
+            # new_activity.start_date = new_activity.start_date - timedelta(hours=8)
         # add the new activity to DB B if not already present
         exists_in_b = session_b.query(
             exists().where(Activity.id == new_activity.id)
