@@ -1,7 +1,7 @@
 import pandas as pd
 from datetime import datetime, timedelta
 import json
-from config import Config
+from ..config import Config
 
 # Load CSV data from a file
 file_path = Config['FOREST'].get('import_csv')  

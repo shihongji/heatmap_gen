@@ -1,6 +1,6 @@
 from sqlalchemy import create_engine, func
 from sqlalchemy.orm import sessionmaker
-from models import Base, Activity
+from .models import Base, Activity
 from config import Config
 
 
