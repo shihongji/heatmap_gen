@@ -16,25 +16,28 @@ class Strava:
         self.access_token = None
         self.client = stravalib.Client()
 
-        # Get access token
-        self.check_access()
-
     @timeit
     def check_access(self):
-        response = self.client.refresh_access_token(
-            client_id=self.client_id,
-            client_secret=self.client_secret,
-            refresh_token=self.refresh_token,
-        )
+        try:
+            response = self.client.refresh_access_token(
+                client_id=self.client_id,
+                client_secret=self.client_secret,
+                refresh_token=self.refresh_token,
+            )
+        except Exception as e:
+            print(f"Error: {e}")
+            return
         # Update the authdata object
         self.access_token = response["access_token"]
         self.refresh_token = response["refresh_token"]
 
         self.client.access_token = response["access_token"]
-        print("Access ok")
+        print("Strava Public API Access Successful")
 
     @timeit
     def get_activities(self, **kwargs):
+        if not self.access_token:
+            self.check_access()
         activities = self.client.get_activities(**kwargs)
         return activities
 
@@ -59,9 +62,8 @@ class Strava:
         return {k: v for k, v in activity_dict.items() if k in relevant_fields}
     
     @timeit
-    def save_activities_to_db(self, activities):
+    def save_activities_to_db(self, activities): 
         db = Database()
-        
         count = 0
         for activity in activities:
             activity_dict = activity.model_dump(mode='json')
@@ -70,5 +72,4 @@ class Strava:
             filtered_activity_dict['start_date_local'] = datetime.fromisoformat(filtered_activity_dict['start_date_local'].replace('Z', ''))
             db.add_activity(filtered_activity_dict)
             count += 1
-        
-        print(f"{count} activities saved to the database")
+        return count
