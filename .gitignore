@@ -6,6 +6,7 @@ __pycache__/
 /database/**
 /heatmap/**
 /utils/**
+/services/**
 main.py
 requirements.txt
 

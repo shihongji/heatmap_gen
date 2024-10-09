@@ -1,0 +1,116 @@
+[
+    {
+        "id": 12576432499,
+        "achievement_count": 1,
+        "athlete": {
+            "id": 119727825,
+            "resource_state": 1
+        },
+        "athlete_count": 1,
+        "average_speed": 3.272,
+        "average_watts": null,
+        "comment_count": 0,
+        "commute": false,
+        "device_watts": null,
+        "distance": 5098.5,
+        "elapsed_time": 1644,
+        "elev_high": 37.9,
+        "elev_low": 26.5,
+        "end_latlng": [
+            37.358011761680245,
+            -121.86304307542741
+        ],
+        "external_id": "stripped_garmin_ping_375246630403",
+        "flagged": false,
+        "gear_id": null,
+        "has_kudoed": false,
+        "hide_from_home": null,
+        "kilojoules": null,
+        "kudos_count": 0,
+        "manual": false,
+        "map": {
+            "id": "a12576432499",
+            "polyline": null,
+            "summary_polyline": "ss_cFlxwfVYg@cAcBQS[c@}AmC_@u@{@sAqAyB[q@[e@oAsBo@wAe@y@aAkAsAqCe@m@{@uAaD}Fa@k@gAeB_@_@uAkCW][M[Pi@h@U^qCxCgEzDcAhAi@d@Yb@sGhGc@d@aBzAs@x@KDw@z@i@`@y@|@cC`C}@t@k@j@gBzAsBtBuBlBTS`@KTNn@~@l@jAr@dAbAfBrApB`CfEd@n@r@tA|BtDZb@`@x@d@r@lAzBjAfBj@hAvCtEh@dAjAlBVXjA~Bh@x@J^GZSNi@Tz@i@~@s@XKz@u@|@}@\\i@Z_@j@e@|@gAJGb@a@`@i@h@WJG`@c@rBmBr@y@~BeCz@u@nA}@zDwDp@u@f@_@zB}BzBsBvB}BVSVHXCRP"
+        },
+        "max_speed": 3.955,
+        "max_watts": null,
+        "moving_time": 1558,
+        "name": "Evening Run",
+        "photo_count": 0,
+        "private": false,
+        "sport_type": "Run",
+        "start_date": "2024-10-05T01:08:40Z",
+        "start_date_local": "2024-10-04T18:08:40Z",
+        "start_latlng": [
+            37.35829523764551,
+            -121.86082597821951
+        ],
+        "timezone": "(GMT-08:00) America/Los_Angeles",
+        "total_elevation_gain": 10.1,
+        "total_photo_count": 0,
+        "trainer": false,
+        "type": "Run",
+        "upload_id": 13409002119,
+        "upload_id_str": "13409002119",
+        "weighted_average_watts": null,
+        "workout_type": null
+    },
+    {
+        "id": 12585720783,
+        "achievement_count": 0,
+        "athlete": {
+            "id": 119727825,
+            "resource_state": 1
+        },
+        "athlete_count": 1,
+        "average_speed": 4.209,
+        "average_watts": null,
+        "comment_count": 0,
+        "commute": false,
+        "device_watts": null,
+        "distance": 8342.3,
+        "elapsed_time": 4627,
+        "elev_high": 28.2,
+        "elev_low": 23.8,
+        "end_latlng": [
+            37.35858265310526,
+            -121.8631664570421
+        ],
+        "external_id": "stripped_062C7A2C-EA04-4DCA-B10B-FED28E8E262C-activity.fit",
+        "flagged": false,
+        "gear_id": null,
+        "has_kudoed": false,
+        "hide_from_home": null,
+        "kilojoules": null,
+        "kudos_count": 0,
+        "manual": false,
+        "map": {
+            "id": "a12585720783",
+            "polyline": null,
+            "summary_polyline": "mn_cFx~wfVWO?KIMKCMDq@l@oCrCs@p@EHs@n@UXOJEFuDnDmElEwArA[RiAlAiA|@m@j@_A`A[`@gDbDsBdBaAnAMHEFMFc@j@SPy@`Ac@^aB~@i@d@k@^o@XmBjAa@P_CvA{Az@w@f@MHE?GCGBqCjBg@Xm@j@s@d@WLk@Lc@?c@EuAYq@?WBy@PWLOHOVUNG@QHoC~BkAfAiBzAWVs@f@QRyE|DuIrHqC`Cc@Za@^]TwCfDe@d@wCnDcBhBmCpCm@t@gHxHwA`BmAbAUNIBIAaAs@WYc@[YKK@EBSf@@PJR?LAALJr@DA@LI?Do@vANE@ID?AP?IAJA@?EA?KJ?FAMA\\HPDARUEGSF?IB?CChJiIGb@DYf@]JMNYVS`AcALWTMj@i@NSXU\\k@HIFIJG`@VF@NG`BeB`@k@zB}B|AoBnAoAnBuB~DiDrAoAnAaATWNKnAkAl@c@v@u@pAcAvCiCz@o@jFuEn@e@f@e@@?`@YPU^[j@[r@Md@Af@BlATR?j@Ad@I`@K`BgAj@m@~@s@|@YZMrCgBpEcC|BwA|@e@\\WVIDEf@WrA{@j@c@v@{@~@yAbBmBHOb@g@fAy@|@u@Z]n@g@z@{@r@}@lAmAnA}@|@eA~@{@fBgBpBiBrBcCxEsE"
+        },
+        "max_speed": 7.106,
+        "max_watts": null,
+        "moving_time": 1982,
+        "name": "Evening Ride",
+        "photo_count": 0,
+        "private": false,
+        "sport_type": "Ride",
+        "start_date": "2024-10-06T00:14:45Z",
+        "start_date_local": "2024-10-05T17:14:45Z",
+        "start_latlng": [
+            37.35848743468523,
+            -121.8634291458875
+        ],
+        "timezone": "(GMT-08:00) America/Los_Angeles",
+        "total_elevation_gain": 4.2,
+        "total_photo_count": 0,
+        "trainer": false,
+        "type": "Ride",
+        "upload_id": 13418134735,
+        "upload_id_str": "13418134735",
+        "weighted_average_watts": null,
+        "workout_type": 0
+    }
+]
