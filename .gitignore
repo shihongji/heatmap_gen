@@ -2,6 +2,12 @@
 /.venv/**
 # pycache
 __pycache__/ 
-/data/**
+/config/**
+/database/**
+/heatmap/**
+/utils/**
+main.py
+requirements.txt
+
 
 **/*.DS_Store
