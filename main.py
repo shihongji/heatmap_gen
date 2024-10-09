@@ -1,4 +1,4 @@
-from strava import Strava
+from services import Strava
 from database import Database
 from datetime import datetime
 from typing import Optional, Iterator
@@ -19,6 +19,7 @@ def retrieve_new_activities() -> Iterator[SummaryActivity]:
     db = Database()
     last_time: Optional[datetime] = db.get_latest_activity()
     activities: Optional[Iterator[SummaryActivity]] = strava.get_activities(after=last_time) 
+    strava.save_activities_to_db(activities)
     return activities
 
 def initial_setup():
@@ -39,5 +40,6 @@ if __name__ == "__main__":
     # check_db()
     # initial_setup()
     check_first_activity()
+    # retrieve_new_activities()
     
 

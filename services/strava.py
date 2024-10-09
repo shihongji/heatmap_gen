@@ -3,9 +3,9 @@ import os
 import json
 import stravalib
 from datetime import datetime
-from utils.decorators import timeit
 from database import Database
 from config import Config
+from utils import timeit
 
 load_dotenv()
 class Strava:
